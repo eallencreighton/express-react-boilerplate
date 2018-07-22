@@ -34,7 +34,7 @@
     "start-js": "react-scripts start",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "seeds": "node lib/seeds/index.js",
-    "heroku-postbuild": "cd src && npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild": "cd src && npm install --only=dev && npm install && npm run seeds && npm run build && npm run seeds"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
