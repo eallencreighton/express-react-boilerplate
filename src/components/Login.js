@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import axios from "axios"
 import { setToken } from "../services/tokenService"
-import { BrowserRouter as Router, Link, Route, Redirect, Switch } from 'react-router-dom'
+import { BrowserRouter as Link } from 'react-router-dom'
 
 
 class Login extends Component {

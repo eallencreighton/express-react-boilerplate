@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { BrowserRouter as Router, Link, Route, Redirect, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import Admin from "./components/Admin"
-import Songs from './components/Songs'
-import Song from './components/Song'
-import filteredSongs from './components/filteredSongs'
-import contentFilteredSongs from './components/contentFilteredSongs'
+//import Admin from "./components/Admin"
+//import Songs from './components/Songs'
+//import Song from './components/Song'
+//import filteredSongs from './components/filteredSongs'
+//import contentFilteredSongs from './components/contentFilteredSongs'
 import { getToken } from './services/tokenService';
 const urlRoot = 'https://www.googleapis.com/drive/v3/files/'
 const urlParams = '/export?mimeType=text/plain&key=AIzaSyBAhr2oTrgFowtilVYdFGwLcYTw_WzdJmI'

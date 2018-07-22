@@ -1,13 +1,13 @@
 import React from "react"
-import axios from "axios"
-import { getToken } from "../services/tokenService"
+//import axios from "axios"
+//import { getToken } from "../services/tokenService"
 import Logout from "./Logout"
 import Songs from './Songs'
 import Song from './Song'
 import Admin from './Admin'
 import filteredSongs from './filteredSongs'
 import contentFilteredSongs from './contentFilteredSongs'
-import { BrowserRouter as Router, Link, Route, Redirect, Switch } from 'react-router-dom'
+import { BrowserRouter as  Link, Route, Redirect } from 'react-router-dom'
 
 class Dashboard extends React.Component {
   state = {
