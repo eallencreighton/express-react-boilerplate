@@ -1,0 +1,5 @@
+{
+    "PORT": 8080,
+    "SECRET": "I am a boobliejooblie",
+    "MONGODB_URI": "mongodb://localhost:27017/lets" 
+}

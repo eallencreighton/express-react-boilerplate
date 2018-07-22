@@ -22,7 +22,7 @@ yarn-error.log*
 
 # secret
 # config
-/config
+
 
 # dev csss
 src/**/*.css
