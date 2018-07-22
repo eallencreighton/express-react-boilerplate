@@ -7,7 +7,6 @@
     "node": "10.4.x"
   },
   "dependencies": {
-    "heroku-postbuild": "cd src && npm install --only=dev && npm install && npm run build",
     "axios": "^0.18.0",
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
@@ -33,7 +32,8 @@
     "server": "nodemon lib/server.js --ignore src/",
     "start-js": "react-scripts start",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "seeds": "node lib/seeds/index.js"
+    "seeds": "node lib/seeds/index.js",
+    "heroku-postbuild": "cd src && npm install --only=dev && npm install && npm run build"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
