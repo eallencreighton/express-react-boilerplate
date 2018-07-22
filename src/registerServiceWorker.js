@@ -1,6 +1,6 @@
 // In production, we register a service worker to serve assets from local cache.
 
-// This lets the app load faster on subsequent visits in production, and gives
+// This LETS the app load faster on subsequent visits in production, and gives
 // it offline capabilities. However, it also means that developers (and users)
 // will only see deployed updates on the "N+1" visit to a page, since previously
 // cached resources are updated in the background.
@@ -33,7 +33,7 @@ export default function register() {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
       if (isLocalhost) {
-        // This is running on localhost. Lets check if a service worker still exists or not.
+        // This is running on localhost. LETS check if a service worker still exists or not.
         checkValidServiceWorker(swUrl);
 
         // Add some additional logging to localhost, pointing developers to the
