@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios'
-import { BrowserRouter as Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 class Signup extends Component {

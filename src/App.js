@@ -97,46 +97,36 @@ class App extends Component {
     
     return (
       <Router>
-      <div>
-      
+        <div>
           <Switch>
-          {/* if you hit the login, don't render any subsequent routes */}
-          <Route exact path="/login" render={() => 
-          this.state.user ? <Redirect to="/" /> : 
-          <Login getCurrentUser={this.getCurrentUser} />}
-           />
-        <Route 
-            exact
-            path='/signup'
-            render={() => this.state.user ? <Redirect to="/" /> : <Signup setUser={this.setUser} />}
-        />
-          {/* otherwise, if the user is logged in show them the dashboard */}
-        <Route 
-            path="/" 
-            render={() => 
-            // if there is a user set in state
-            this.state.user ? <Dashboard setUser={this.setUser} user={this.state.user}/>
-            // otherwise
-            :
-            // Redirect the user to the login screen
-            <Redirect to="/login" />
-            }
-        />
-        {/* hitting /login will lead you to the login screen */}
-        <Route
-            exact
-            path="/login"
-            render={() =>
-            this.state.user ? <Redirect to="/" /> : <Login  />
-            }
-        />
-       
-
-        
-    
-        </Switch>
-       
-        
+            {/* if you hit the login, don't render any subsequent routes */}
+            <Route exact path="/login" render={() => this.state.user ? <Redirect to="/" /> : <Login getCurrentUser={this.getCurrentUser} />} />
+            <Route 
+                exact
+                path='/signup'
+                render={() => this.state.user ? <Redirect to="/" /> : <Signup setUser={this.setUser} />}
+            />
+            {/* otherwise, if the user is logged in show them the dashboard */}
+            <Route 
+                path="/" 
+                render={() => 
+                // if there is a user set in state
+                this.state.user ? <Dashboard setUser={this.setUser} user={this.state.user}/>
+                // otherwise
+                :
+                // Redirect the user to the login screen
+                <Redirect to="/login" />
+                }
+            />
+            {/* hitting /login will lead you to the login screen */}
+            <Route
+                exact
+                path="/login"
+                render={() =>
+                this.state.user ? <Redirect to="/" /> : <Login  />
+                }
+            />      
+          </Switch>
         </div>
       </Router>
     )

@@ -7,7 +7,7 @@ import Song from './Song'
 import Admin from './Admin'
 import filteredSongs from './filteredSongs'
 import contentFilteredSongs from './contentFilteredSongs'
-import { BrowserRouter as  Link, Route, Redirect } from 'react-router-dom'
+import { Link, Route, Redirect } from 'react-router-dom'
 
 class Dashboard extends React.Component {
   state = {
