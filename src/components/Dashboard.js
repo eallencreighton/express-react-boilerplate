@@ -90,7 +90,7 @@ class Dashboard extends React.Component {
         <h1>Dashboard</h1>
         <h1>Welcome {this.props.user.firstName} !</h1>
         <Logout setUser={this.props.setUser}/>
-         <p><Link to='/Admin' onClick={this.toggleHidden.bind(this)}>ADMIN </Link></p><p><Link to='/' > DASHBOARD</Link></p> 
+         <p><Link to='/Admin' >ADMIN </Link></p><p><Link to='/' > DASHBOARD</Link></p> 
         {/* <button onClick={this.toggleHidden.bind(this)} >
           toggle admin<p><Link to='/Admin' >ADMIN</Link></p>
         </button> */}
