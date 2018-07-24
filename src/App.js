@@ -63,7 +63,7 @@ class App extends Component {
   seedAdmin = async () => {
     //const { email, password, firstName, lastName, role } = this.state
     try {
-      const res = await axios.post("/signup", { email:"eallencreighton@gmail.com", password:"1234", firstName: "Esme", lastName: "Allen-Creighton", role: "Administrator"})
+      const res = await axios.post("/signup", { email:"esme@gmail.com", password:"1234", firstName: "Esme", lastName: "Allen-Creighton", role: "Administrator"})
       console.log(res.data)
     } catch (e) {
       console.error(e)
@@ -77,8 +77,9 @@ class App extends Component {
     //const user = await this.login()
     //this.setState({ user , loading: false})
     this.seedAdmin()
+
     this.getCurrentUser()
-    console.log('getcurrent ran')
+    console.log('getcurrent ran, ditto seedadmin')
   }
 
   render() {
