@@ -51,7 +51,7 @@ console.log(res.songs)
         {this.state.songs.map(song => (
           <li>
               <Link key={song._id} to={`/songs/${song._id}`}>{song.title}</Link>
-              <p> - <a href='#' onClick={() => this.removePost(song._id)}>Delete Post</a></p>
+              <p> - <a href='#' onClick={() => this.removePost(song._id)}>Delete Song</a></p>
             </li>
       ))}
       </ul>

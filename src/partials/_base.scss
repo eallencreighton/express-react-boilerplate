@@ -1,3 +1,71 @@
 h1 {
     color: orange;
 }
+
+.drive-viewer.drive-viewer-embed .drive-viewer-shadow {
+    background: white !important;
+}
+
+.drive-viewer-v3 .drive-viewer-shadow {
+    background: white !important;
+}
+
+.drive-viewer-shadow {
+    background: white !important;
+}
+
+.drive-viewer {
+    background: white !important;
+}
+
+.top {
+    border-bottom:12px solid white;
+    width:calc(100% - 12px);
+    margin-bottom:-12px;
+    position:relative; 
+    left: 0;
+    z-index: 9999;
+}
+.bottom {
+    border-top:13px solid white;
+    width:calc(100% - 12px);
+    margin-top:-16px;
+    position:relative; 
+    z-index: 9999;
+}
+
+.side {
+    border:9px solid white;
+    width:0;
+    height: 463px;
+    top:0;
+    //margin-top:-490px;
+    position:absolute; 
+    z-index: 9999;
+}
+
+.iframe-wrapper {
+    max-width: 580px;
+    position: relative;
+    margin: 20px auto;
+}
+
+iframe {
+    border-width: 0 !important;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+    
+}
+    iframe body .drive-viewer.drive-viewer-embed .drive-viewer-shadow {
+        background-color: white !important;
+    }
+    .drive-viewer-v3 .drive-viewer-shadow {
+        background-color: white !important;
+
+    }
+    body .drive-viewer.drive-viewer-embed .drive-viewer-shadow.drive-viewer-default {
+        background-color: white !important;
+
+    }
+

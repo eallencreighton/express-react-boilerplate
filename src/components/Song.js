@@ -34,6 +34,7 @@ class Song extends Component {
     }
 
     render() {
+        
         //console.log(JSON.stringify(this.state.song.comments))
         //const { comments } = JSON.stringify(this.state.song.comments)
     //     var json = JSON.stringify(this.state.song.comments)
@@ -57,8 +58,12 @@ class Song extends Component {
                 <p>{this.state.song.title}</p>
                 <p>
                 {this.state.song.composer}</p>
-               
-                <iframe src={`https://docs.google.com/viewer?srcid=${this.state.googleId}&pid=explorer&efh=false&a=v&chrome=false&embedded=true`} width="580px" height="480px"></iframe>
+                <div class="iframe-wrapper">
+                    <div class="top"></div>
+                    <iframe src={`https://docs.google.com/viewer?srcid=${this.state.googleId}&pid=explorer&efh=false&a=v&chrome=false&embedded=true`} width="100%" height="480px"></iframe>
+                    <div class="side"></div>
+                    <div class="bottom"></div>
+                </div>
                 <li>
                 {JSON.stringify(this.state.song.comments)}</li>
                 {/* <li>
