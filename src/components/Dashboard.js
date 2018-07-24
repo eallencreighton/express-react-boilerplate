@@ -76,7 +76,9 @@ class Dashboard extends React.Component {
          
          render={() =>
 
-        (this.props.user.role === "Administrator" ) ? <Admin refresh={this.refresh} /> : <Redirect to="/"/>
+        //(this.props.user.role === "Administrator" ) ? 
+        <Admin refresh={this.refresh} /> 
+        //: <Redirect to="/"/>
          }
          
         />
