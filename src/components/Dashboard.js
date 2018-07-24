@@ -17,7 +17,8 @@ class Dashboard extends React.Component {
     songComposer: '',
     songTitle: '',
     vocabString: '',
-    songs: []
+    songs: [],
+    isHidden: true
   };
   handleChange = e => {
     this.setState({
@@ -38,6 +39,21 @@ class Dashboard extends React.Component {
     //  b - the Authorization Header Bearer <token>
     
   }
+  titleSubmit = async e => {
+    e.preventDefault();
+   
+    let res = await axios.get(`/title/${this.state.titleSearch}`)
+    console.log(res)
+    //} else {let res = await axios.get('/songs')}
+    
+    this.setState({ songs: res.data })
+    // 1. Get the user's token
+    // 2. Send a POST to /todo with
+    //  a - the body containing the TODO we wish to post
+    //  b - the Authorization Header Bearer <token>
+    
+  }
+
   refresh = async () => {
     //if (this.vocabString) {
       let res = await axios.get(`/songs`)
@@ -51,6 +67,11 @@ class Dashboard extends React.Component {
   //   await axios.delete(`/songs/${id}`)
   //   this.refresh()
   // }
+  toggleHidden () {
+    this.setState({
+      isHidden: !this.state.isHidden
+    })
+  }
   
 
 
@@ -69,40 +90,45 @@ class Dashboard extends React.Component {
         <h1>Dashboard</h1>
         <h1>Welcome {this.props.user.firstName} !</h1>
         <Logout setUser={this.props.setUser}/>
-        <p><Link to='/Admin' >ADMIN</Link></p>
-        <Route 
+         <p><Link to='/Admin' onClick={this.toggleHidden.bind(this)}>ADMIN </Link></p><p><Link to='/' > DASHBOARD</Link></p> 
+        {/* <button onClick={this.toggleHidden.bind(this)} >
+          toggle admin<p><Link to='/Admin' >ADMIN</Link></p>
+        </button> */}
+
+         <Route 
          exact
          path="/Admin"
          
          render={() =>
 
-        //(this.props.user.role === "Administrator" ) ? 
-        <Admin refresh={this.refresh} /> 
-        //: <Redirect to="/"/>
+        (this.props.user.role === "Administrator" ) ? 
+        <Admin refresh={this.refresh} />
+        : <Redirect to="/"/>
          }
          
-        />
-
-        <form onSubmit={this.handleSubmit}>
+        /> 
+        <form onSubmit={this.titleSubmit}>
           <label htmlFor="titleSearch">Search by title</label>
           <input name="titleSearch" type="text" id="titleSearch" value={this.state.titleSearch} onChange={this.handleChange}/>
-          <p><label htmlFor="vocabString">Search by Vocab Word</label>
-          <input name="vocabString" type="text" id="vocabString" value={this.state.vocabString} onChange={this.handleChange}/></p>
-          <label htmlFor="submit">Submit</label>
           <input id="submit" type="submit" value="Submit search" />
-          <p>Your search is: {this.state.titleSearch}</p>
-          
         </form>
+
+        <form onSubmit={this.handleSubmit}>
+          <p><label htmlFor="vocabString">Search by Vocab Word</label>
+          <input name="vocabString" type="text" id="vocabString" value={this.state.vocabString} onChange={this.handleChange}/>
+          <input id="submit" type="submit" value="Submit search" /></p>
+        </form>
+
         <p><button onClick={this.refresh}>Clear Filter</button></p>
         <Songs songs={this.state.songs} refresh={this.refresh}/>
         {/* <p><Link to='/songs' >Click here to see all the songs!</Link></p> */}
         {/* <Route path='/songs' component={Songs} vocabString={this.vocabString} removeSong={this.removeSong} user={this.props.user}/> */}
         <Route path='/songs/:song_id' removeSong={this.removeSong} component={Song} />
         {/* Write another endpoint that shows songs searched by title */}
-        <p><Link to={`/title/${this.state.titleSearch}`} >Click here to see all the songs from your search</Link></p>
+        {/* <p><Link to={`/title/${this.state.titleSearch}`} >Click here to see all the songs from your search</Link></p>
         <Route path={`/title/:song_title`} component={filteredSongs} />
         <p><Link to={`/content/${this.state.vocabString}`} >Click here to see all the songs from your VOCAB search</Link></p>
-        <Route path={`/content/:vocabString`} component={contentFilteredSongs} />
+        <Route path={`/content/:vocabString`} component={contentFilteredSongs} /> */}
         <Logout setUser={this.props.setUser}/>
       </div>
     );

@@ -56,36 +56,27 @@ class App extends Component {
               console.error(e)
           }
       }
+      
+      
   }
 
-  songPost = async (e) => {
-    e.preventDefault()
-    const id = await this.state.songFile.split('/')[5]
-    const docText = await axios.get(`${urlRoot}${id}${urlParams}`)
-    //this.setState({vocabString: docText.data})
-    console.log(docText.data)
-    await axios.post('/songs', {
-      title: this.state.songTitle,
-      composer: this.state.songComposer,
-      link: this.state.songFile,
-      vocabString: docText.data
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
+  seedAdmin = async () => {
+    //const { email, password, firstName, lastName, role } = this.state
+    try {
+      const res = await axios.post("/signup", { email:"eallencreighton@gmail.com", password:"1234", firstName: "Esme", lastName: "Allen-Creighton", role: "Administrator"})
+      console.log(res.data)
+    } catch (e) {
+      console.error(e)
+    }
+
   }
 
-  handleSubmit = (e) => {
-    alert(`a search for ${this.state.titleSearch} was submitted `)
-   //e.preventDefault();
-  }
+
   async componentDidMount() {
     //this.setState({ loading: true})
     //const user = await this.login()
     //this.setState({ user , loading: false})
+    this.seedAdmin()
     this.getCurrentUser()
     console.log('getcurrent ran')
   }
