@@ -18,16 +18,8 @@ class Admin extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
   handleSubmit = async e => {
-    e.preventDefault();
-    // Grab email and password out of state
-    const { email, password, firstName, lastName, role } = this.state
-    try {
-      const res = await axios.post("/signup", { email, password, firstName, lastName, role})
-      this.props.setUser(res.data)
-    } catch (e) {
-      console.error(e)
-    }
-    console.log("submitted!")
+   
+
   }
   songPost = async (e) => {
     e.preventDefault()
@@ -47,6 +39,7 @@ class Admin extends Component {
     .catch(function (error) {
       console.log(error);
     })
+    this.props.refresh()
   }
   async componentDidMount() {
     //get all posts from the database
