@@ -8,12 +8,13 @@ class Songs extends Component {
         songs: []
         //vocabString: this.props.vocabString
     }
-    refresh = async () => {
-      const res = await axios.get('/songs')
-
+    refresh = async (res) => {
+    //
+    this.setState({ shoes: res.songs })
+    //this.setState({refreshShoeList: !this.state.refreshShoeList})
       //const response = await axios.get(`/content/${this.state.vocabString}`)
 console.log(res.songs)
-      this.setState({ songs: res })
+      //this.setState({ songs: res })
   
     }
     removePost = async id => {
@@ -27,10 +28,10 @@ console.log(res.songs)
        //this.setState({ songs:response.data })
 
        //this.refresh()
-       console.log(this.props.vocabString, this.props.songs)
+
     }
     componentWillReceiveProps(newProps) {
-      console.log(newProps);
+
       this.setState({ songs: newProps.songs })
   
   }

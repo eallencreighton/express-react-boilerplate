@@ -5,13 +5,16 @@ import axios from 'axios'
 
 class Song extends Component {
     state = {
-        song: {}
+        song: {},
+        googleId: ''
     }
 
     getSong = async (props) => {
         const { song_id } = props.match.params
         const response = await axios.get(`/songs/${song_id}`)
-        this.setState({ song: response.data })
+        const googleId = await response.data.link.split('/')[5]
+        console.log(googleId)
+        this.setState({ song: response.data, googleId })
         
         
     }
@@ -21,7 +24,7 @@ class Song extends Component {
         //.then(this.refresh);
       };
 
-    componentDidMount () {
+    componentWillMount () {
         this.getSong(this.props)
         
     }
@@ -49,14 +52,13 @@ class Song extends Component {
 
      //Questions
 //console.log(arr);
-
         return (
-            <ul>
-                <li>{this.state.song.title}</li>
-                <li>
-                {this.state.song.composer}</li>
-                <li>
-                {this.state.song.link}</li>
+            <div>
+                <p>{this.state.song.title}</p>
+                <p>
+                {this.state.song.composer}</p>
+               
+                <iframe src={`https://docs.google.com/viewer?srcid=${this.state.googleId}&pid=explorer&efh=false&a=v&chrome=false&embedded=true`} width="580px" height="480px"></iframe>
                 <li>
                 {JSON.stringify(this.state.song.comments)}</li>
                 {/* <li>
@@ -66,7 +68,8 @@ class Song extends Component {
                     ))}
                     </ul>
                 <li>   */}
-            </ul>
+            </div>
+           
         )
     }
 }
