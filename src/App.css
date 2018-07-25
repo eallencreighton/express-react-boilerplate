@@ -1,5 +1,10 @@
-h1 {
-  color: orange; }
+p, a, label {
+  font-Size: 17px;
+  font-family: "Quattrocento Sans", Sans-Serif; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "Ovo", Serif;
+  font-Size: 50px; }
 
 .drive-viewer.drive-viewer-embed .drive-viewer-shadow {
   background: white !important; }
@@ -55,6 +60,3 @@ iframe body .drive-viewer.drive-viewer-embed .drive-viewer-shadow {
 
 body .drive-viewer.drive-viewer-embed .drive-viewer-shadow.drive-viewer-default {
   background-color: white !important; }
-
-body {
-  background: peachpuff; }

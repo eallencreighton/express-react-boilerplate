@@ -1,6 +1,29 @@
-h1 {
-    color: orange;
+
+//$font1:'Work Sans', Sans-Serif;
+//$font2: 'Open Sans', Sans-Serif;
+// Font-Size: 45px;
+// Font-Family: 'Open Sans', Sans-Serif;
+// Font-Size: 15px;
+
+//$font1: 'Merriweather', Serif;
+//Font-Size: 46px;
+//$font2: 'Muli', Sans-Serif;
+//Font-Size: 16px;
+
+$font1: 'Ovo', Serif;
+$font2: 'Quattrocento Sans', Sans-Serif;
+
+
+p, a, label{
+    font-Size: 17px;
+    font-family: $font2;
 }
+
+h1, h2, h3, h4, h5 {
+    font-family: $font1;
+    font-Size: 50px;
+}
+
 
 .drive-viewer.drive-viewer-embed .drive-viewer-shadow {
     background: white !important;

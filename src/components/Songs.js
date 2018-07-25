@@ -2,26 +2,26 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import axios from 'axios'
+import { userInfo } from 'os';
 
 class Songs extends Component {
     state = {
         songs: []
         //vocabString: this.props.vocabString
     }
-    refresh = async (res) => {
-    //
-    this.setState({ shoes: res.songs })
-    //this.setState({refreshShoeList: !this.state.refreshShoeList})
-      //const response = await axios.get(`/content/${this.state.vocabString}`)
-console.log(res.songs)
-      //this.setState({ songs: res })
+
+    // do I need three different types of refresh?
+    // refresh = async () => {
+    //   const res = await axios.get('/songs')
+    //   this.setState({ posts: res.data })
   
-    }
+    // }
     removePost = async id => {
       await axios.delete(`/songs/${id}`)
-      this.refresh()
+      this.props.refresh()
     }
     async componentDidMount() {
+      console.log(this.props.user)
        //get all posts from the database
        //const response = await axios.get('/songs')
        // store the posts in state
@@ -35,6 +35,14 @@ console.log(res.songs)
       this.setState({ songs: newProps.songs })
   
   }
+
+  // adminOnlyDeleteLine = () => {
+  //   if(something) {
+  //     return (
+  //       <p>Im an admin!</p>
+  //     )
+  //   }
+  // }
   render () {
     //      const isAdmin = this.props.role === "Administrator";
     //     let button;
@@ -49,9 +57,9 @@ console.log(res.songs)
       <h1>Songs</h1>
       <ul>
         {this.state.songs.map(song => (
-          <li>
-              <Link key={song._id} to={`/songs/${song._id}`}>{song.title}</Link>
-              <p> - <a href='#' onClick={() => this.removePost(song._id)}>Delete Song</a></p>
+          <li key={song._id}>
+              <Link  to={`/songs/${song._id}`}>{song.title}</Link>
+              {this.props.user.role==="Administrator" ? <p> - <a href='#' onClick={() => this.removePost(song._id) }>Delete Song</a></p>: null}
             </li>
       ))}
       </ul>

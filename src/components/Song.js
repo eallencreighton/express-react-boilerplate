@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-
-
+import Comment from  './Comment'
+import AddComment from  './AddComment'
 import axios from 'axios'
 
 class Song extends Component {
@@ -8,8 +8,12 @@ class Song extends Component {
         song: {},
         googleId: ''
     }
+    refresh = () => {
 
-    getSong = async (props) => {
+    }
+
+    getSong = async (props=this.props) => {
+        
         const { song_id } = props.match.params
         const response = await axios.get(`/songs/${song_id}`)
         const googleId = await response.data.link.split('/')[5]
@@ -26,6 +30,7 @@ class Song extends Component {
 
     componentWillMount () {
         this.getSong(this.props)
+        console.log(this.props.match.params.song_id,this.props.user,this.refresh)
         
     }
 
@@ -34,45 +39,33 @@ class Song extends Component {
     }
 
     render() {
-        
-        //console.log(JSON.stringify(this.state.song.comments))
-        //const { comments } = JSON.stringify(this.state.song.comments)
-    //     var json = JSON.stringify(this.state.song.comments)
-    // var arr = [];
-    // Object.keys(json).forEach(function(key) {
-    //   arr.push(json[key]);
-    // });
-    // var arr = [];
-    //   Object.keys(this.state.song.comments).forEach((comment, index) => {
-    //           this.state.song.comments[comment].forEach((obj, idx) => {
-    //               arr.push(obj.body)
-    //           })
-    //       })
-          
-     //arr = arr.filter((x, i, a) => a.indexOf(x) == i) // remove duplicate entries
-
-     //Questions
-//console.log(arr);
         return (
             <div>
                 <p>{this.state.song.title}</p>
                 <p>
                 {this.state.song.composer}</p>
-                <div class="iframe-wrapper">
-                    <div class="top"></div>
+                <div className="iframe-wrapper">
+                    <div className="top"></div>
                     <iframe src={`https://docs.google.com/viewer?srcid=${this.state.googleId}&pid=explorer&efh=false&a=v&chrome=false&embedded=true`} width="100%" height="480px"></iframe>
-                    <div class="side"></div>
-                    <div class="bottom"></div>
+                    <div className="side"></div>
+                    <div className="bottom"></div>
                 </div>
                 <li>
-                {JSON.stringify(this.state.song.comments)}</li>
-                {/* <li>
-                    <ul>
-                    {Object.keys(this.state.song).map(key => (
-                        <li key={key}>{this.state.song[key]}<li/>
-                    ))}
-                    </ul>
-                <li>   */}
+                </li>
+                {this.state.song.comments
+          ? this.state.song.comments.map(comment => (
+              <Comment
+                key={comment._id}
+                comment={comment}
+              />
+              
+            ))
+          : null}
+           <AddComment
+          songId={this.props.match.params.song_id}
+          user={this.props.user}
+          refresh={this.getSong}
+        />
             </div>
            
         )

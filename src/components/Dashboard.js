@@ -18,7 +18,8 @@ class Dashboard extends React.Component {
     songTitle: '',
     vocabString: '',
     songs: [],
-    isHidden: true
+    isHidden: true,
+    lastFetch: () => {}
   };
   handleChange = e => {
     this.setState({
@@ -32,7 +33,7 @@ class Dashboard extends React.Component {
     console.log(res)
     //} else {let res = await axios.get('/songs')}
     
-    this.setState({ songs: res.data })
+    this.setState({ songs: res.data, lastFetch: this.handleSubmit})
     // 1. Get the user's token
     // 2. Send a POST to /todo with
     //  a - the body containing the TODO we wish to post
@@ -46,12 +47,16 @@ class Dashboard extends React.Component {
     console.log(res)
     //} else {let res = await axios.get('/songs')}
     
-    this.setState({ songs: res.data })
+    this.setState({ songs: res.data, lastFetch: this.titleSubmit })
     // 1. Get the user's token
     // 2. Send a POST to /todo with
     //  a - the body containing the TODO we wish to post
     //  b - the Authorization Header Bearer <token>
     
+  }
+
+  filteredRefresh = () => {
+
   }
 
   refresh = async () => {
@@ -60,7 +65,7 @@ class Dashboard extends React.Component {
     console.log('res from refresh',res)
     //} else {let res = await axios.get('/songs')}
     
-    this.setState({ songs: res.data })
+    this.setState({ songs: res.data, lastFetch: this.refresh })
 
   }
   // removePost = async id => {
@@ -80,15 +85,15 @@ class Dashboard extends React.Component {
     // 1. When the dashboard loads, get the user's token
     
     let res = await axios.get('/songs')
-    this.setState({ songs: res.data })
+    this.setState({ songs: res.data, lastFetch: this.refresh })
     console.log('from dashbaord',this.props.user)
   }
 
   render() {
     return (
       <div>
-        <h1>Dashboard</h1>
-        <h1>Welcome {this.props.user.firstName} !</h1>
+        <h1>Lets*</h1>
+        <p>* Learn English Through Song. Welcome {this.props.user.firstName}!</p>
         <Logout setUser={this.props.setUser}/>
          <p><Link to='/Admin' >ADMIN </Link></p><p><Link to='/' > DASHBOARD</Link></p> 
         {/* <button onClick={this.toggleHidden.bind(this)} >
@@ -120,15 +125,11 @@ class Dashboard extends React.Component {
         </form>
 
         <p><button onClick={this.refresh}>Clear Filter</button></p>
-        <Songs songs={this.state.songs} refresh={this.refresh}/>
+        <Songs songs={this.state.songs} refresh={this.state.lastFetch} user={this.props.user}/>
         {/* <p><Link to='/songs' >Click here to see all the songs!</Link></p> */}
         {/* <Route path='/songs' component={Songs} vocabString={this.vocabString} removeSong={this.removeSong} user={this.props.user}/> */}
-        <Route path='/songs/:song_id' removeSong={this.removeSong} component={Song} />
-        {/* Write another endpoint that shows songs searched by title */}
-        {/* <p><Link to={`/title/${this.state.titleSearch}`} >Click here to see all the songs from your search</Link></p>
-        <Route path={`/title/:song_title`} component={filteredSongs} />
-        <p><Link to={`/content/${this.state.vocabString}`} >Click here to see all the songs from your VOCAB search</Link></p>
-        <Route path={`/content/:vocabString`} component={contentFilteredSongs} /> */}
+        <Route path='/songs/:song_id'  render={(props) => <Song {...props} user={this.props.user} removeSong={this.removeSong} />} />
+     
         <Logout setUser={this.props.setUser}/>
       </div>
     );
