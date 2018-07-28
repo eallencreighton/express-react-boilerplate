@@ -30,7 +30,7 @@ class Song extends Component {
 
     componentWillMount () {
         this.getSong(this.props)
-        console.log(this.props.match.params.song_id,this.props.user,this.refresh)
+  
         
     }
 

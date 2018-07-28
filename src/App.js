@@ -51,7 +51,7 @@ class App extends Component {
               })
               const user = res.data
               this.setState({ user })
-              console.log('got the user', this.state.user.role)
+
           } catch (e) {
               console.error(e)
           }
@@ -64,7 +64,7 @@ class App extends Component {
     //const { email, password, firstName, lastName, role } = this.state
     try {
       const res = await axios.post("/signup", { email:"esme@gmail.com", password:"1234", firstName: "Esme", lastName: "Allen-Creighton", role: "Administrator"})
-      console.log(res.data)
+
     } catch (e) {
       console.error(e)
     }
@@ -79,7 +79,7 @@ class App extends Component {
     this.seedAdmin()
 
     this.getCurrentUser()
-    console.log('getcurrent ran, ditto seedadmin')
+
   }
 
   render() {
@@ -88,6 +88,8 @@ class App extends Component {
     // if (!user) return (<h1>Not logged in.</h1>)
     
     return (
+      <div className="wrapper">
+      <nav><div class="logo"><p>LE</p><p>TS</p></div></nav>
       <Router>
         <div>
           <Switch>
@@ -121,6 +123,7 @@ class App extends Component {
           </Switch>
         </div>
       </Router>
+      </div>
     )
   }
 }

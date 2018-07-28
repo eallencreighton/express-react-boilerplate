@@ -1,6 +1,6 @@
 
-//$font1:'Work Sans', Sans-Serif;
-//$font2: 'Open Sans', Sans-Serif;
+$font1:'Work Sans', Sans-Serif;
+$font2: 'Open Sans', Sans-Serif;
 // Font-Size: 45px;
 // Font-Family: 'Open Sans', Sans-Serif;
 // Font-Size: 15px;
@@ -10,18 +10,57 @@
 //$font2: 'Muli', Sans-Serif;
 //Font-Size: 16px;
 
-$font1: 'Ovo', Serif;
-$font2: 'Quattrocento Sans', Sans-Serif;
+// $font1: 'Ovo', Serif;
+// $font2: 'Quattrocento Sans', Sans-Serif;
+$black: rgba(0, 0, 0, 0.6);
 
 
-p, a, label{
-    font-Size: 17px;
+p,  label{
+    font-Size: 18px;
     font-family: $font2;
 }
 
 h1, h2, h3, h4, h5 {
     font-family: $font1;
+}
+
+h1 {
     font-Size: 50px;
+    margin-bottom: 0;
+}
+
+h4 {
+    margin-top: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+input[type="text"]{
+    border: 1px solid black;
+}
+
+.wrapper {
+    padding: 0 20px;
+}
+
+//BUTTON Styles
+button, input[type="submit"], .nav-links a {
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    background: white;
+    color: $black;
+    
+    padding: 8px 13px;
+    margin: 10px 0;
+    transition: all 0.3s;
+    font-size: 14px;
+    &:hover, &:focus {
+        background: $black;
+        color: white;
+       
+    }
 }
 
 
@@ -92,3 +131,58 @@ iframe {
 
     }
 
+//NAV STYLES
+nav {
+    position: fixed;
+    top: 0;
+    left: 20px;
+    height: 80px;
+}
+
+.nav-links {
+    position: fixed;
+    top: 0;
+    right: 20px;
+    height: 80px;
+    a {
+        margin-right: 10px;
+    }
+}
+
+.logo {
+    background: black;
+    color: white;
+    font-family: $font1;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    p {
+        margin: 0;
+        font-family: $font1;
+        line-height: 12px;
+    }
+}
+
+//MAIN styles
+main {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    // &> div {
+    //     width: 30%;
+    // }
+}
+
+.image {
+    img {
+        width: 100%;
+    }
+}
+
+.filters {
+    width: 45%;
+}   

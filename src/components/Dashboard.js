@@ -5,10 +5,9 @@ import Logout from "./Logout"
 import Songs from './Songs'
 import Song from './Song'
 import Admin from './Admin'
-import filteredSongs from './filteredSongs'
-import contentFilteredSongs from './contentFilteredSongs'
 import { Link, Route, Redirect } from 'react-router-dom'
 import axios from 'axios'
+import letsImage from './lets-image.png' 
 
 class Dashboard extends React.Component {
   state = {
@@ -30,7 +29,7 @@ class Dashboard extends React.Component {
     e.preventDefault();
    
     let res = await axios.get(`/content/${this.state.vocabString}`)
-    console.log(res)
+
     //} else {let res = await axios.get('/songs')}
     
     this.setState({ songs: res.data, lastFetch: this.handleSubmit})
@@ -44,7 +43,7 @@ class Dashboard extends React.Component {
     e.preventDefault();
    
     let res = await axios.get(`/title/${this.state.titleSearch}`)
-    console.log(res)
+
     //} else {let res = await axios.get('/songs')}
     
     this.setState({ songs: res.data, lastFetch: this.titleSubmit })
@@ -62,7 +61,7 @@ class Dashboard extends React.Component {
   refresh = async () => {
     //if (this.vocabString) {
       let res = await axios.get(`/songs`)
-    console.log('res from refresh',res)
+
     //} else {let res = await axios.get('/songs')}
     
     this.setState({ songs: res.data, lastFetch: this.refresh })
@@ -86,19 +85,19 @@ class Dashboard extends React.Component {
     
     let res = await axios.get('/songs')
     this.setState({ songs: res.data, lastFetch: this.refresh })
-    console.log('from dashbaord',this.props.user)
+
   }
 
   render() {
     return (
       <div>
+      <main>
+        <div className="filters">
         <h1>Lets*</h1>
-        <p>* Learn English Through Song. Welcome {this.props.user.firstName}!</p>
-        <Logout setUser={this.props.setUser}/>
-         <p><Link to='/Admin' >ADMIN </Link></p><p><Link to='/' > DASHBOARD</Link></p> 
-        {/* <button onClick={this.toggleHidden.bind(this)} >
-          toggle admin<p><Link to='/Admin' >ADMIN</Link></p>
-        </button> */}
+        <p>* Learn English Through Song.</p>
+        {/* <Logout setUser={this.props.setUser}/> */}
+         <div class="nav-links"><Link to='/Admin' >Admin </Link><Link to='/' > Dashboard</Link><Logout setUser={this.props.setUser}/></div> 
+
 
          <Route 
          exact
@@ -113,24 +112,38 @@ class Dashboard extends React.Component {
          
         /> 
         <form onSubmit={this.titleSubmit}>
-          <label htmlFor="titleSearch">Search by title</label>
+        <h2> Welcome {this.props.user.firstName}!</h2>
+        {/* <p>Search for any song we've worked on in class by title or vocabulary word.  Please leave any questions as comments under each song. Happy learning!</p>  */}
+        <p>Search for songs:</p>
+          <label htmlFor="titleSearch">by title: </label>
           <input name="titleSearch" type="text" id="titleSearch" value={this.state.titleSearch} onChange={this.handleChange}/>
-          <input id="submit" type="submit" value="Submit search" />
+          <div className="button-container">
+            <input id="submit" type="submit" value="Get Songs" />
+          </div>
         </form>
 
         <form onSubmit={this.handleSubmit}>
-          <p><label htmlFor="vocabString">Search by Vocab Word</label>
+          <label htmlFor="vocabString">by Vocab Word: </label>
           <input name="vocabString" type="text" id="vocabString" value={this.state.vocabString} onChange={this.handleChange}/>
-          <input id="submit" type="submit" value="Submit search" /></p>
+          <div className="button-container">
+            <input id="submit" type="submit" value="Get Songs" />
+          </div>
         </form>
 
         <p><button onClick={this.refresh}>Clear Filter</button></p>
+        </div>
+         <div class="image">
+          <img src={letsImage} alt="woman with imaginary music notes coming out of her head"/>
+         </div>
+        
+      </main>
+      <div className="songs">
         <Songs songs={this.state.songs} refresh={this.state.lastFetch} user={this.props.user}/>
         {/* <p><Link to='/songs' >Click here to see all the songs!</Link></p> */}
         {/* <Route path='/songs' component={Songs} vocabString={this.vocabString} removeSong={this.removeSong} user={this.props.user}/> */}
         <Route path='/songs/:song_id'  render={(props) => <Song {...props} user={this.props.user} removeSong={this.removeSong} />} />
-     
-        <Logout setUser={this.props.setUser}/>
+
+      </div>
       </div>
     );
   }

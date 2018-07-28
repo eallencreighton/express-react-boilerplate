@@ -10,19 +10,15 @@ class contentFilteredSongs extends Component {
     }
 
     searchForSong = async (props) => {
-        console.log(props)
-        const vocabString = props.match.params.vocabString
-        console.log('searchTitle', vocabString)
-        
-        
+
+        const vocabString = props.match.params.vocabString       
         const response = await axios.get(`/content/${vocabString}`)
 
         this.setState({ songs: response.data })
-        console.log(this.state.songs)
+
     }
 
     componentDidMount () {
-        console.log('props',this.props)
         this.searchForSong(this.props)
     }
 

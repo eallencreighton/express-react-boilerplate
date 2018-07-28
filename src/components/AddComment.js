@@ -32,7 +32,7 @@ class AddComment extends Component {
     }
   }
   componentWillMount = () => {
-    console.log(this.props.user, this.props.songId)
+
   }
 
   render() {

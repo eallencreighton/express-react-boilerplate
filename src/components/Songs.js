@@ -21,7 +21,6 @@ class Songs extends Component {
       this.props.refresh()
     }
     async componentDidMount() {
-      console.log(this.props.user)
        //get all posts from the database
        //const response = await axios.get('/songs')
        // store the posts in state

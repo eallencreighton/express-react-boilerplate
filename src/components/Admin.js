@@ -26,7 +26,7 @@ class Admin extends Component {
     const id = await this.state.songFile.split('/')[5]
     const docText = await axios.get(`${urlRoot}${id}${urlParams}`)
     //this.setState({vocabString: docText.data})
-    console.log(docText.data)
+
     await axios.post('/songs', {
       title: this.state.songTitle,
       composer: this.state.songComposer,
@@ -34,7 +34,7 @@ class Admin extends Component {
       vocabString: docText.data
     })
     .then(function (response) {
-      console.log(response);
+
     })
     .catch(function (error) {
       console.log(error);
@@ -52,17 +52,24 @@ class Admin extends Component {
         <div>
             <form onSubmit={this.songPost} id="addSongForm">
                 <h2>Enter your song here</h2>
+                <div className="input-container">
                 <label htmlFor="songTitle">Title (required)</label>
                 <input name="songTitle" type="text" id="songTitle" value={this.state.songTitle} onChange={this.handleChange}/>
+                </div>
+                <div className="input-container">
                 <label htmlFor="songComposer">Composer (required)</label>
                 <input name="songComposer" type="text" id="songComposer" value={this.state.songComposer} onChange={this.handleChange}/>
+                </div>
+                <div className="input-container">
                 <label htmlFor="songFile">File (required)</label>
                 {/* Figure out if pdf file is not a string */}
                 <input name="songFile" type="text" id="songFile" value={this.state.songFile} onChange={this.handleChange}/>
+                </div>
+                <div className="input-container">
                 <input id="submitSong" type="submit" value="Submit song" />
-                <p>Your song is: {this.state.songTitle}</p>
+                </div>
             </form>
-            <h3>Class participants</h3>
+            <h2>Class participants</h2>
             {this.state.users.map(user => (
           <p>
               {user.firstName} {user.lastName}, {user.email}

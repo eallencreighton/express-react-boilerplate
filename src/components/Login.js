@@ -22,7 +22,7 @@ class Login extends Component {
       const res = await axios.post('/login', { email, password})
       const token = res.data.token
       setToken(token)
-      console.log(token)
+
       this.props.getCurrentUser()
     } catch(e) {
       console.error(e)

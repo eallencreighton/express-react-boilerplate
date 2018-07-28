@@ -10,16 +10,13 @@ class filteredSongs extends Component {
     }
 
     searchForSong = async (props) => {
-        console.log(props)
+
         const searchTitle = props.match.params.song_title
-        //const { searchTitle } = 'HelloSong'
-        console.log('searchTitle', searchTitle)
-        
-        
+       
         const response = await axios.get(`/title/${searchTitle}`)
 
         this.setState({ songs: response.data })
-        console.log(this.state.songs)
+
     }
 
     componentDidMount () {

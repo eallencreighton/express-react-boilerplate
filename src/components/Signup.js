@@ -24,7 +24,7 @@ class Signup extends Component {
     } catch (e) {
       console.error(e)
     }
-    console.log("submitted!")
+
   };
   render() {
     return (
