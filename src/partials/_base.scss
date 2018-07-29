@@ -38,7 +38,7 @@ h1 {
 
 h2 {
     font-size: 40px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 h3 {
@@ -54,18 +54,22 @@ a {
     text-decoration: none;
 }
 
-input[type="text"]{
-    border: 1px solid black;
+input[type="text"], input[type="email"], input[type="password"], textarea{
+    border: 1px solid $black;
+    padding:5px;
 }
 
 .input-container {
     margin-bottom: 15px;
+    input[type="submit"] {
+        margin-top:0;
+    }
 }
 
 .wrapper {
     // padding: 0 20px;
-    width: 80%;
-        margin: 80px auto 0;
+    width: 82%;
+        margin: 70px auto 0;
 }
 
 //BUTTON Styles
@@ -159,14 +163,14 @@ iframe {
 nav {
     position: fixed;
     top: 0;
-    left: 10%;
+    left: 9%;
     height: 80px;
 }
 
 .nav-links {
     position: fixed;
     top: 0;
-    right: 10%;
+    right: 9%;
     height: 80px;
     z-index: 999;
     a {
@@ -188,6 +192,7 @@ nav {
     p {
         margin: 0;
         line-height: 12px;
+        font-size:20px;
     }
 }
 
@@ -202,8 +207,11 @@ main {
 }
 
 .image {
+    margin-right: -45px;
+    margin-top: -15px;
     img {
         width: 100%;
+        display:block;
     }
 }
 
@@ -257,6 +265,8 @@ main {
 
 .clear-filter {
     text-align: center;
+    margin-bottom:0;
+    padding-bottom: 20px;
 }
 
 //Login Styles
@@ -289,4 +299,8 @@ main {
     h3 {
         margin-top: 0;
     }
+}
+
+.admin {
+    padding-right: 20px;
 }

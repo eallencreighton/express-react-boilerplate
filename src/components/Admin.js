@@ -49,7 +49,7 @@ class Admin extends Component {
  }
   render() {
     return (
-        <div>
+        <div className="admin">
             <form onSubmit={this.songPost} id="addSongForm">
                 <h2>Enter songs here:</h2>
                 <div className="input-container">

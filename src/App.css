@@ -16,7 +16,7 @@ h1 {
 
 h2 {
   font-size: 40px;
-  margin-bottom: 15px; }
+  margin-bottom: 20px; }
 
 h3 {
   font-size: 30px;
@@ -28,15 +28,18 @@ h4 {
 a {
   text-decoration: none; }
 
-input[type="text"] {
-  border: 1px solid black; }
+input[type="text"], input[type="email"], input[type="password"], textarea {
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  padding: 5px; }
 
 .input-container {
   margin-bottom: 15px; }
+  .input-container input[type="submit"] {
+    margin-top: 0; }
 
 .wrapper {
-  width: 80%;
-  margin: 80px auto 0; }
+  width: 82%;
+  margin: 70px auto 0; }
 
 button, input[type="submit"], .nav-links a {
   border: 2px solid rgba(0, 0, 0, 0.5);
@@ -109,13 +112,13 @@ body .drive-viewer.drive-viewer-embed .drive-viewer-shadow.drive-viewer-default 
 nav {
   position: fixed;
   top: 0;
-  left: 10%;
+  left: 9%;
   height: 80px; }
 
 .nav-links {
   position: fixed;
   top: 0;
-  right: 10%;
+  right: 9%;
   height: 80px;
   z-index: 999; }
   .nav-links a {
@@ -134,15 +137,20 @@ nav {
   border-radius: 50%; }
   .logo p {
     margin: 0;
-    line-height: 12px; }
+    line-height: 12px;
+    font-size: 20px; }
 
 main {
   display: flex;
   justify-content: space-between;
   margin-top: 50px; }
 
-.image img {
-  width: 100%; }
+.image {
+  margin-right: -45px;
+  margin-top: -15px; }
+  .image img {
+    width: 100%;
+    display: block; }
 
 .filters {
   width: 45%; }
@@ -178,7 +186,9 @@ main {
   width: 85%; }
 
 .clear-filter {
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 0;
+  padding-bottom: 20px; }
 
 .login {
   text-align: center;
@@ -205,3 +215,6 @@ main {
   margin: 20px auto; }
   .comment-form h3 {
     margin-top: 0; }
+
+.admin {
+  padding-right: 20px; }

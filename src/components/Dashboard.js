@@ -110,6 +110,7 @@ class Dashboard extends React.Component {
      this.scrollToTop()
      this.refresh()
      this.removeHash()
+     this.setState({titleSearch: '', vocabString: ''})
    }
   
 
@@ -132,7 +133,7 @@ class Dashboard extends React.Component {
         <h1>Lets*</h1>
         <p>* Learn English Through Song. Welcome {this.props.user.firstName}!</p>
         {/* <Logout setUser={this.props.setUser}/> */}
-         <div class="nav-links"><Link to='/Admin' >Admin </Link><Link to='/' > Dashboard</Link><Logout setUser={this.props.setUser}/></div> 
+         <div class="nav-links"><Link to='/Admin' onClick={this.scrollToTop}>Admin </Link><Link to='/' onClick={this.scrollToTop}> Dashboard</Link><Logout setUser={this.props.setUser}/></div> 
 
 
          <Route 
