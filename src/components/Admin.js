@@ -41,6 +41,16 @@ class Admin extends Component {
     })
     this.props.refresh()
   }
+  scrollToSongs () {
+    const el = document.querySelector('.songs')
+    var rect = el.getBoundingClientRect();
+    console.log(rect.top, rect.right, rect.bottom, rect.left);
+    window.scrollTo({
+      top: rect.top,
+      behavior: "smooth"
+    });
+  }
+
   async componentDidMount() {
     //get all posts from the database
     const response = await axios.get('/users')
@@ -66,7 +76,7 @@ class Admin extends Component {
                 <input name="songFile" type="text" id="songFile" value={this.state.songFile} onChange={this.handleChange}/>
                 </div>
                 <div className="input-container">
-                <input id="submitSong" type="submit" value="Submit song" />
+                <input onClick={this.scrollToSongs} id="submitSong" type="submit" value="Submit song" />
                 </div>
             </form>
             <h2>Class participants</h2>
