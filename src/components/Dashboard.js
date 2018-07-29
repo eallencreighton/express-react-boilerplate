@@ -151,18 +151,26 @@ class Dashboard extends React.Component {
        
         {/* <p>Search for any song we've worked on in class by title or vocabulary word.  Please leave any questions as comments under each song. Happy learning!</p>  */}
         <h2>Search for songs:</h2>
-          <label htmlFor="titleSearch">by title: </label>
-          <input name="titleSearch" type="text" id="titleSearch" value={this.state.titleSearch} onChange={this.handleChange}/>
-          <div className="button-container">
-            <input id="submit" type="submit" value="Get Songs" onClick={this.scrollToSongs}/>
+          <div className="input-container">
+            <label htmlFor="titleSearch">by title: </label>
+            <input name="titleSearch" type="text" id="titleSearch" value={this.state.titleSearch} onChange={this.handleChange}/>
+          </div>
+          <div className="input-container">
+            <div className="button-container">
+              <input id="submit" type="submit" value="Get Songs" onClick={this.scrollToSongs}/>
+            </div>
           </div>
         </form>
 
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="vocabString">by Vocab Word: </label>
-          <input name="vocabString" type="text" id="vocabString" value={this.state.vocabString} onChange={this.handleChange}/>
-          <div className="button-container">
-            <input id="submit" type="submit" value="Get Songs" onClick={this.scrollToSongs}/>
+          <div className="input-container">
+            <label htmlFor="vocabString">by vocabulary word: </label>
+            <input name="vocabString" type="text" id="vocabString" value={this.state.vocabString} onChange={this.handleChange}/>
+          </div>
+          <div className="input-container">
+            <div className="button-container">
+              <input id="submit" type="submit" value="Get Songs" onClick={this.scrollToSongs}/>
+            </div>
           </div>
         </form>
 
@@ -175,12 +183,15 @@ class Dashboard extends React.Component {
       </main>
       <div className="songs">
       <div className=" center ">
+         <div>
         <Songs songs={this.state.songs} refresh={this.state.lastFetch} user={this.props.user}/>
         {/* <p><Link to='/songs' >Click here to see all the songs!</Link></p> */}
         {/* <Route path='/songs' component={Songs} vocabString={this.vocabString} removeSong={this.removeSong} user={this.props.user}/> */}
         <Route path='/songs/:song_id'  render={(props) => <Song {...props} user={this.props.user} removeSong={this.removeSong} />} />
         
       </div>
+      </div>
+      
       <Link to="/">
       <p className="clear-filter"><button onClick={this.handleClearFilter}>Clear filter and search again</button></p></Link>
       </div>

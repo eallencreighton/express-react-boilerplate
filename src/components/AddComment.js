@@ -37,12 +37,19 @@ class AddComment extends Component {
 
   render() {
     return (
-      <div>
+      <div className='comment-form'>
         <h3>Add Comment</h3>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" onChange={this.handleChange} name="title" placeholder='Comment title' /><br />
-          <textarea type="text" onChange={this.handleChange} name="body" placeholder='Comment description' /><br />
+
+          <div className="input-container">
+          <p><label for="commentTitle" >Give your comment a title:</label></p>
+          <input id="commentTitle" type="text" onChange={this.handleChange} name="title" placeholder='Comment title' /><br />
+          </div>
+          <div className="input-container">
+          <p><label for="commentText" >What are you thinking?</label></p>
+          <textarea id="commentText" type="text" onChange={this.handleChange} name="body" placeholder='Comment description' /><br />
           <input type="submit" value="Add Comment" />
+          </div>
         </form>
       </div>
     )

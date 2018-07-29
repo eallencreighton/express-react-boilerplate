@@ -32,17 +32,20 @@ class Signup extends Component {
       <div>
       <form onSubmit={this.handleSubmit}>
       <h1>Welcome to Lets!</h1>
-        <div>
-          <label htmlFor="firstName">First Name: </label>
-          <input
-            type="text"
-            onChange={this.handleChange}
-            name="firstName"
-            id="firstName"
-            placeholder="Enter your first Name"
-          />
-        </div>
-        <div>
+
+          <div className="input-container">
+            <label htmlFor="firstName">First Name: </label>
+            <input
+              type="text"
+              onChange={this.handleChange}
+              name="firstName"
+              id="firstName"
+              placeholder="Enter your first Name"
+            />
+          </div>
+        
+
+        <div className="input-container">
           <label htmlFor="lastName">Last Name: </label>
           <input
             type="text"
@@ -52,7 +55,9 @@ class Signup extends Component {
             placeholder="Enter your last Name"
           />
         </div>
-        <div>
+
+
+        <div className="input-container">
           <label htmlFor="email">Email: </label>
           <input
             type="email"
@@ -62,7 +67,7 @@ class Signup extends Component {
             placeholder="email"
           />
         </div>
-        <div>
+        <div className="input-container">
           <label htmlFor="email">Password: </label>
           <input
             type="password"

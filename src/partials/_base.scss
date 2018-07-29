@@ -27,9 +27,18 @@ h1, h2, h3, h4, h5 {
 h1 {
     font-size: 60px;
     margin-bottom: 0;
+    & + p {
+        margin-top: 8px;
+    }
 }
+
+.login h1 {
+    margin-bottom: 15px;
+}
+
 h2 {
     font-size: 40px;
+    margin-bottom: 15px;
 }
 
 h3 {
@@ -49,8 +58,14 @@ input[type="text"]{
     border: 1px solid black;
 }
 
+.input-container {
+    margin-bottom: 15px;
+}
+
 .wrapper {
-    padding: 0 20px;
+    // padding: 0 20px;
+    width: 80%;
+        margin: 80px auto 0;
 }
 
 //BUTTON Styles
@@ -115,9 +130,9 @@ button, input[type="submit"], .nav-links a {
 }
 
 .iframe-wrapper {
-    max-width: 580px;
+   width: 85%;
     position: relative;
-    margin: 20px auto;
+    
 }
 
 iframe {
@@ -144,14 +159,14 @@ iframe {
 nav {
     position: fixed;
     top: 0;
-    left: 20px;
+    left: 10%;
     height: 80px;
 }
 
 .nav-links {
     position: fixed;
     top: 0;
-    right: 20px;
+    right: 10%;
     height: 80px;
     z-index: 999;
     a {
@@ -197,15 +212,19 @@ main {
 }  
 
 .songs {
-    padding: 40px 0;
-    background: rgba(0, 0, 0, 0.05);
+    
+    background: rgba(0, 0, 0, 0.03);
+    
 }
 
 .center {
+    width: 80%;
+    margin: 0 auto;
 
-    text-align:center;
-    display:flex;
-
+    &>div {
+        display:flex;
+        justify-content: space-between;
+    }
 }
 
 .songs-listing {
@@ -214,11 +233,26 @@ main {
     ul {
         list-style: none;
         padding: 0;
+        li {
+            margin: 5px;
+        }
     }
 }
 
 .song {
     width: 75%;
+    
+    &-center {
+        display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    }   
+}
+
+
+.title-container {
+    text-align: center;
+    width: 85%;
 }
 
 .clear-filter {
@@ -227,6 +261,7 @@ main {
 
 //Login Styles
 .login {
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -237,8 +272,21 @@ main {
     }
 }
 
-form {
-    h2 {
-        margin-bottom: 10px;
+.comments {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+}
+
+.comment-form {
+    text-align: center;
+    background: white;
+    display: inline-block;
+    padding: 20px;
+    width: 60%;
+    margin: 20px auto;
+    h3 {
+        margin-top: 0;
     }
 }
