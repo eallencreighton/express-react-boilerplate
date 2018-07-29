@@ -1,12 +1,19 @@
 p, label {
   font-Size: 18px;
-  font-family: "Open Sans", Sans-Serif; }
-
-h1, h2, h3, h4, h5 {
   font-family: "Work Sans", Sans-Serif; }
 
+h1, h2, h3, h4, h5 {
+  font-family: "Ovo", Serif; }
+
 h1 {
-  font-Size: 50px;
+  font-size: 60px;
+  margin-bottom: 0; }
+
+h2 {
+  font-size: 40px; }
+
+h3 {
+  font-size: 30px;
   margin-bottom: 0; }
 
 h4 {
@@ -52,14 +59,14 @@ button, input[type="submit"], .nav-links a {
   margin-bottom: -12px;
   position: relative;
   left: 0;
-  z-index: 9999; }
+  z-index: 99; }
 
 .bottom {
   border-top: 13px solid white;
   width: calc(100% - 12px);
   margin-top: -16px;
   position: relative;
-  z-index: 9999; }
+  z-index: 99; }
 
 .side {
   border: 9px solid white;
@@ -67,7 +74,7 @@ button, input[type="submit"], .nav-links a {
   height: 463px;
   top: 0;
   position: absolute;
-  z-index: 9999; }
+  z-index: 99; }
 
 .iframe-wrapper {
   max-width: 580px;
@@ -75,6 +82,7 @@ button, input[type="submit"], .nav-links a {
   margin: 20px auto; }
 
 iframe {
+  background: white;
   border-width: 0 !important;
   border-style: inset;
   border-color: initial;
@@ -99,14 +107,15 @@ nav {
   position: fixed;
   top: 0;
   right: 20px;
-  height: 80px; }
+  height: 80px;
+  z-index: 999; }
   .nav-links a {
     margin-right: 10px; }
 
 .logo {
   background: black;
   color: white;
-  font-family: "Work Sans", Sans-Serif;
+  font-family: "Ovo", Serif;
   width: 50px;
   height: 50px;
   display: flex;
@@ -116,7 +125,6 @@ nav {
   border-radius: 50%; }
   .logo p {
     margin: 0;
-    font-family: "Work Sans", Sans-Serif;
     line-height: 12px; }
 
 main {
@@ -129,3 +137,36 @@ main {
 
 .filters {
   width: 45%; }
+
+.songs {
+  padding: 40px 0;
+  background: rgba(0, 0, 0, 0.05); }
+
+.center {
+  text-align: center;
+  display: flex; }
+
+.songs-listing {
+  display: inline-block;
+  margin: 0 auto; }
+  .songs-listing ul {
+    list-style: none;
+    padding: 0; }
+
+.song {
+  width: 75%; }
+
+.clear-filter {
+  text-align: center; }
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; }
+  .login > div {
+    display: inline-block; }
+
+form h2 {
+  margin-bottom: 10px; }

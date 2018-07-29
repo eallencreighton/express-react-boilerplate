@@ -35,8 +35,10 @@ class Login extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="login">
+        <div>
         <form onSubmit={this.handleSubmit}>
+        <h1>Welcome to Lets!</h1>
           <div>
             <label htmlFor="login-email">Email: </label>
             <input
@@ -63,6 +65,7 @@ class Login extends Component {
         </form>
       <p>New to 'Learn English Through Song?'</p>
       <Link to='/Signup' >Sign up here</Link>
+      </div>
       </div>
     )
   }

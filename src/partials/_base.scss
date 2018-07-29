@@ -1,6 +1,6 @@
 
-$font1:'Work Sans', Sans-Serif;
-$font2: 'Open Sans', Sans-Serif;
+$font2:'Work Sans', Sans-Serif;
+//$font1: 'Open Sans', Sans-Serif;
 // Font-Size: 45px;
 // Font-Family: 'Open Sans', Sans-Serif;
 // Font-Size: 15px;
@@ -10,8 +10,8 @@ $font2: 'Open Sans', Sans-Serif;
 //$font2: 'Muli', Sans-Serif;
 //Font-Size: 16px;
 
-// $font1: 'Ovo', Serif;
-// $font2: 'Quattrocento Sans', Sans-Serif;
+$font1: 'Ovo', Serif;
+//$font2: 'Quattrocento Sans', Sans-Serif;
 $black: rgba(0, 0, 0, 0.6);
 
 
@@ -25,7 +25,15 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-    font-Size: 50px;
+    font-size: 60px;
+    margin-bottom: 0;
+}
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 30px;
     margin-bottom: 0;
 }
 
@@ -86,14 +94,14 @@ button, input[type="submit"], .nav-links a {
     margin-bottom:-12px;
     position:relative; 
     left: 0;
-    z-index: 9999;
+    z-index: 99;
 }
 .bottom {
     border-top:13px solid white;
     width:calc(100% - 12px);
     margin-top:-16px;
     position:relative; 
-    z-index: 9999;
+    z-index: 99;
 }
 
 .side {
@@ -103,7 +111,7 @@ button, input[type="submit"], .nav-links a {
     top:0;
     //margin-top:-490px;
     position:absolute; 
-    z-index: 9999;
+    z-index: 99;
 }
 
 .iframe-wrapper {
@@ -113,6 +121,7 @@ button, input[type="submit"], .nav-links a {
 }
 
 iframe {
+    background: white;
     border-width: 0 !important;
     border-style: inset;
     border-color: initial;
@@ -144,6 +153,7 @@ nav {
     top: 0;
     right: 20px;
     height: 80px;
+    z-index: 999;
     a {
         margin-right: 10px;
     }
@@ -162,7 +172,6 @@ nav {
     border-radius: 50%;
     p {
         margin: 0;
-        font-family: $font1;
         line-height: 12px;
     }
 }
@@ -185,4 +194,51 @@ main {
 
 .filters {
     width: 45%;
-}   
+}  
+
+.songs {
+    padding: 40px 0;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.center {
+
+    text-align:center;
+    display:flex;
+
+}
+
+.songs-listing {
+    display: inline-block;
+    margin: 0 auto;
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+}
+
+.song {
+    width: 75%;
+}
+
+.clear-filter {
+    text-align: center;
+}
+
+//Login Styles
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    &>div {
+        display: inline-block;
+    }
+}
+
+form {
+    h2 {
+        margin-bottom: 10px;
+    }
+}

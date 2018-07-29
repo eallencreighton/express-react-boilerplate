@@ -38,7 +38,7 @@ class AddComment extends Component {
   render() {
     return (
       <div>
-        <h2>Add Comment</h2>
+        <h3>Add Comment</h3>
         <form onSubmit={this.handleSubmit}>
           <input type="text" onChange={this.handleChange} name="title" placeholder='Comment title' /><br />
           <textarea type="text" onChange={this.handleChange} name="body" placeholder='Comment description' /><br />

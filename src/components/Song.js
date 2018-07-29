@@ -40,8 +40,8 @@ class Song extends Component {
 
     render() {
         return (
-            <div>
-                <p>{this.state.song.title}</p>
+            <div className="song">
+                <h3>{this.state.song.title}</h3>
                 <p>
                 {this.state.song.composer}</p>
                 <div className="iframe-wrapper">
@@ -50,8 +50,7 @@ class Song extends Component {
                     <div className="side"></div>
                     <div className="bottom"></div>
                 </div>
-                <li>
-                </li>
+                
                 {this.state.song.comments
           ? this.state.song.comments.map(comment => (
               <Comment

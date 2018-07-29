@@ -51,17 +51,17 @@ class Admin extends Component {
     return (
         <div>
             <form onSubmit={this.songPost} id="addSongForm">
-                <h2>Enter your song here</h2>
+                <h2>Enter songs here:</h2>
                 <div className="input-container">
-                <label htmlFor="songTitle">Title (required)</label>
+                <label htmlFor="songTitle">Title (required) </label>
                 <input name="songTitle" type="text" id="songTitle" value={this.state.songTitle} onChange={this.handleChange}/>
                 </div>
                 <div className="input-container">
-                <label htmlFor="songComposer">Composer (required)</label>
+                <label htmlFor="songComposer">Composer (required) </label>
                 <input name="songComposer" type="text" id="songComposer" value={this.state.songComposer} onChange={this.handleChange}/>
                 </div>
                 <div className="input-container">
-                <label htmlFor="songFile">File (required)</label>
+                <label htmlFor="songFile">File (required) </label>
                 {/* Figure out if pdf file is not a string */}
                 <input name="songFile" type="text" id="songFile" value={this.state.songFile} onChange={this.handleChange}/>
                 </div>

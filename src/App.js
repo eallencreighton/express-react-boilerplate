@@ -81,6 +81,12 @@ class App extends Component {
     this.getCurrentUser()
 
   }
+  scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+  });
+  }
 
   render() {
     // const { user, loading } = this.state
@@ -88,8 +94,8 @@ class App extends Component {
     // if (!user) return (<h1>Not logged in.</h1>)
     
     return (
-      <div className="wrapper">
-      <nav><div class="logo"><p>LE</p><p>TS</p></div></nav>
+      <div >
+      <nav><button class="logo" onClick={this.scrollToTop}><p>LE</p><p>TS</p></button></nav>
       <Router>
         <div>
           <Switch>
@@ -105,7 +111,7 @@ class App extends Component {
                 path="/" 
                 render={() => 
                 // if there is a user set in state
-                this.state.user ? <Dashboard setUser={this.setUser} user={this.state.user}/>
+                this.state.user ? <Dashboard setUser={this.setUser} user={this.state.user} scrollToTop={this.scrollToTop}/>
                 // otherwise
                 :
                 // Redirect the user to the login screen

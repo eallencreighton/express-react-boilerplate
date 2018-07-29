@@ -76,7 +76,43 @@ class Dashboard extends React.Component {
       isHidden: !this.state.isHidden
     })
   }
+
+  scrollToSongs () {
+    const el = document.querySelector('.songs')
+    var rect = el.getBoundingClientRect();
+    console.log(rect.top, rect.right, rect.bottom, rect.left);
+    window.scrollTo({
+      top: rect.top,
+      behavior: "smooth"
+    });
+  }
+
+  scrollToTop() {
+    console.log('clicked')
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+  });
+  }
+
+  removeHash () { 
+    // window.history.replaceState({}, "", "");
+    if (window.history.pushState) {
+      var newurl = '';
+      window.history.pushState({path:newurl},'',newurl);
+  }
+}
+
+
+
   
+   handleClearFilter = () => {
+     this.scrollToTop()
+     this.refresh()
+     this.removeHash()
+   }
+  
+
 
 
 
@@ -91,10 +127,10 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-      <main>
+      <main className="wrapper">
         <div className="filters">
         <h1>Lets*</h1>
-        <p>* Learn English Through Song.</p>
+        <p>* Learn English Through Song. Welcome {this.props.user.firstName}!</p>
         {/* <Logout setUser={this.props.setUser}/> */}
          <div class="nav-links"><Link to='/Admin' >Admin </Link><Link to='/' > Dashboard</Link><Logout setUser={this.props.setUser}/></div> 
 
@@ -112,13 +148,13 @@ class Dashboard extends React.Component {
          
         /> 
         <form onSubmit={this.titleSubmit}>
-        <h2> Welcome {this.props.user.firstName}!</h2>
+       
         {/* <p>Search for any song we've worked on in class by title or vocabulary word.  Please leave any questions as comments under each song. Happy learning!</p>  */}
-        <p>Search for songs:</p>
+        <h2>Search for songs:</h2>
           <label htmlFor="titleSearch">by title: </label>
           <input name="titleSearch" type="text" id="titleSearch" value={this.state.titleSearch} onChange={this.handleChange}/>
           <div className="button-container">
-            <input id="submit" type="submit" value="Get Songs" />
+            <input id="submit" type="submit" value="Get Songs" onClick={this.scrollToSongs}/>
           </div>
         </form>
 
@@ -126,11 +162,11 @@ class Dashboard extends React.Component {
           <label htmlFor="vocabString">by Vocab Word: </label>
           <input name="vocabString" type="text" id="vocabString" value={this.state.vocabString} onChange={this.handleChange}/>
           <div className="button-container">
-            <input id="submit" type="submit" value="Get Songs" />
+            <input id="submit" type="submit" value="Get Songs" onClick={this.scrollToSongs}/>
           </div>
         </form>
 
-        <p><button onClick={this.refresh}>Clear Filter</button></p>
+        
         </div>
          <div class="image">
           <img src={letsImage} alt="woman with imaginary music notes coming out of her head"/>
@@ -138,11 +174,15 @@ class Dashboard extends React.Component {
         
       </main>
       <div className="songs">
+      <div className=" center ">
         <Songs songs={this.state.songs} refresh={this.state.lastFetch} user={this.props.user}/>
         {/* <p><Link to='/songs' >Click here to see all the songs!</Link></p> */}
         {/* <Route path='/songs' component={Songs} vocabString={this.vocabString} removeSong={this.removeSong} user={this.props.user}/> */}
         <Route path='/songs/:song_id'  render={(props) => <Song {...props} user={this.props.user} removeSong={this.removeSong} />} />
-
+        
+      </div>
+      <Link to="/">
+      <p className="clear-filter"><button onClick={this.handleClearFilter}>Clear filter and search again</button></p></Link>
       </div>
       </div>
     );

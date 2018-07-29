@@ -28,8 +28,10 @@ class Signup extends Component {
   };
   render() {
     return (
+      <div className="login">
       <div>
       <form onSubmit={this.handleSubmit}>
+      <h1>Welcome to Lets!</h1>
         <div>
           <label htmlFor="firstName">First Name: </label>
           <input
@@ -76,6 +78,7 @@ class Signup extends Component {
       </form>
       <p>Already a user?</p>
       <Link to='/Login' >Login here</Link>
+      </div>
       </div>
     )
   }

@@ -52,8 +52,8 @@ class Songs extends Component {
     //   button = ''
     // }
     return (
-    <div>
-      <h1>Songs</h1>
+    <div className="songs-listing">
+      <h2>Songs</h2>
       <ul>
         {this.state.songs.map(song => (
           <li key={song._id}>
